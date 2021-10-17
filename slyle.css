@@ -1,0 +1,33 @@
+html,body{
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  min-width: 800px;
+  min-height: 600px;
+}
+img {
+  border-radius: 10px;
+  margin-bottom: 2em;
+}
+.control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.control p {
+  font-size: 1.5em;
+}
+input["type=radio"]{
+  color: blue;
+}
