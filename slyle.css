@@ -1,4 +1,5 @@
-html,body{
+html,
+body {
   margin: 0 auto;
   box-sizing: border-box;
   background-color: #000;
@@ -11,13 +12,15 @@ html,body{
 .slider-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 2em;
-  min-width: 800px;
+  padding: 2em;
+  flex-basis: 800px;
   min-height: 600px;
 }
 img {
   border-radius: 10px;
   margin-bottom: 2em;
+  max-width: 100%;
+  height: auto;
 }
 .control {
   display: flex;
@@ -28,6 +31,67 @@ img {
 .control p {
   font-size: 1.5em;
 }
-input["type=radio"]{
+.radio-row {
+  display: inline-flex;
+  gap: 10px;
+}
+input[type='radio'] {
   color: blue;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+}
+input[type='radio'] + label {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+input[type='radio'] + label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(34, 132, 181);
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 2px solid rgb(34, 132, 181);
+}
+input[type='radio']:hover + label::before {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+}
+
+input[type='radio']:checked + label::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 2px solid rgb(34, 132, 181);
+  background-color: black;
+  transition: all 0.3s ease;
+}
+input[type='radio']:hover + label::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 2px solid #ccc;
+}
+@media only screen and (max-width: 768px) {
+  .control {
+    flex-direction: column-reverse;
+    justify-content: center;
+    row-gap: 1em;
+  }
+  p {
+    align-self: flex-start;
+  }
 }
