@@ -11,16 +11,19 @@ const slides_capture = [
   "Not so fast"
 ]
 
-//let checked_radio = document.querySelector('input[name = "radio"]:checked');
-//console.log(checked_radio);
 function changeSlide(element) {
   let id = element.getAttribute("for");
   let image = document.getElementsByTagName('img');
-  // image[0].classList.toggle('fade');
-
-  image[0].src = slides_images[id];
-  //image[0].classList.toggle('slide');
+  image[0].classList.remove('slide');
+  setTimeout(() => {
+    image[0].classList.add('slide');
+    image[0].src = slides_images[id];
+  }, 100);
 
   let capture = document.getElementsByTagName('p');
-  capture[0].textContent = slides_capture[id];
+  capture[0].classList.remove('animated');
+  setTimeout(() => {
+    capture[0].classList.add('animated');
+    capture[0].textContent = slides_capture[id];
+  }, 100);
 }
